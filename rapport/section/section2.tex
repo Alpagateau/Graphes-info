@@ -1,1 +1,21 @@
-%
+On montre par récurrence sur $n\in \N$ le nombre de sommets d'un graphe $G = (V,E)$ la propriété~:
+$$"\sum_{x \in V} \deg_G(x) = 2 \card{E}"$$
+
+\begin{itemize}
+    \item[Initialisation :] Pour $n=0$, $\card{E} = 0$  et $\sum_{x \in V} \deg_G(x) = \sum_{x \in \varnothing} \deg_G(x) = 0$. La propriété est initialisée.
+    \item[Hérédité :] Pour $n \in \N$, supposons le résultat vrai. Soit $G = (V,E)$ un graphe à $n+1$ sommets. Considérons un sommet $s$ de $G$, ainsi que le graphe $G'=(V', E')$ auquel on a retiré $s$~:
+    $$\begin{cases}
+    V' = V \setminus \{s\}\\
+    E' = \{(u,v) \in E,\,  u \neq s \text{ ou } v \neq s\}\\
+    \end{cases}$$
+    On peut écrire~:
+    \begin{align*}
+        \sum_{x \in V} \deg_G(x) &= \sum_{x \in V'} \deg_G(x) + \deg_G(s)\\
+        &= 2\card{E'} + \deg_G(s) \qquad\text{hypothèse de récurrence à $G'$}\\
+        &= 2\card{E'} + \card{\{(u,v) \in E,\, u \in V \text{ et } v = s\}} + \card{\{(u,v) \in E,\, u = s \text{ et } v \in V\}}\\
+        &= 2\card{E'} + 2\card{E\setminus E'} \qquad\text{Propriété appliquée à $n=2$}\\
+        &= 2\card{E}
+    \end{align*}
+    La propriété est héréditaire. D'où le résultat.
+
+\end{itemize}

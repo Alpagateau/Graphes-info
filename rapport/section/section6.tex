@@ -1,1 +1,30 @@
-%
+\begin{itemize}
+    \item[$\boxed{\implies}$] Si $G = (V_G, E_G)$ et $H = (V_H, E_H)$ sont isomorphes, alors il existe $\varphi : V_G \to V_H$ une bijection telle que~:
+    \begin{equation}
+        \label{eq:isomorphism-condition}
+        \forall (u_G, v_G) \in E_G,\, \Big(\varphi(u_G),\varphi(v_G)\Big) \in E_H
+    \end{equation}
+    Notons $\sigma_G : V_G \to \intint{1}{\card{G}}$ la bijection qui a permi de concevoir \code{normaliser(}$G$\code{)}. De même pour $\sigma_H$. On pose~:
+    \fonction{\varphi'}{\intint{1}{\card{G}}}{\intint{1}{\card{H}}}{u}{(\sigma_H\circ \varphi \circ \sigma_G^{-1})(u)}
+    %cite equation
+    De (\ref{eq:isomorphism-condition}), on déduit alors~:
+    $$\forall (u_G, v_G) \in E_G,\, \Big((\sigma_H \circ \varphi)(u_G),(\sigma_H \circ \varphi)(v_G)\Big) \in \sigma_H(E_H) = E_{\code{normaliser(}H\code{)}}$$
+    Puis car $\sigma_G$ est bijective~:
+    $$\forall (u_G, v_G) \in E_{\code{normaliser(}G\code{)}},\, \Big((\sigma_H \circ \varphi \circ \sigma_G^{-1})(u_G),(\sigma_H \circ \varphi \circ \sigma_G^{-1})(v_G)\Big) \in E_{\code{normaliser(}H\code{)}}$$
+    Par définition de $\varphi'$ ceci équivaut à~:
+    $$ \forall (u_G, v_G) \in E_{\code{normaliser(}G\code{)}},\, \Big(\varphi'(u_G),\varphi'(v_G)\Big) \in E_{\code{normaliser(}H\code{)}}$$
+    et traduit exactement le caractère isomorphe de $E_{\code{normaliser(}G\code{)}}$ et $E_{\code{normaliser(}H\code{)}}$.
+    \item[$\boxed{\impliedby}$] Si $E_{\code{normaliser(}G\code{)}}$ et $E_{\code{normaliser(}H\code{)}}$ sont isomorphes, alors il existe une bijection~:
+    \fonction{\varphi'}{\intint{1}{\card{G}}}{\intint{1}{\card{H}}}{u}{\varphi'(u)}
+    telle que~:
+    $$ \forall (u_G, v_G) \in E_{\code{normaliser(}G\code{)}},\, \Big(\varphi'(u_G),\varphi'(v_G)\Big) \in E_{\code{normaliser(}H\code{)}}$$
+    Notons $\sigma_G : V_G \to \intint{1}{\card{G}}$ la bijection qui a permi de concevoir \code{normaliser(}$G$\code{)}. De même pour $\sigma_H$. On pose~:
+    \fonction{\varphi}{V_G}{V_H}{u}{(\sigma_H^{-1}\circ \varphi' \circ \sigma_G)(u)}
+    Par définition de $\varphi'$, on déduit alors~:
+    $$ \forall (u_G, v_G) \in E_{\code{normaliser(}G\code{)}},\, \Big((\sigma_H^{-1} \circ \varphi' )(u_G),(\sigma_H^{-1} \circ \varphi' )(v_G)\Big) \in \sigma_H^{-1}(E_{\code{normaliser(}H\code{)}}) = E_H$$
+    Puis car $\sigma_G$ est bijective~:
+    $$ \forall (u_G, v_G) \in E_G,\, \Big((\sigma_H^{-1} \circ \varphi' \circ \sigma_G)(u_G),(\sigma_H^{-1} \circ \varphi' \circ \sigma_G)(v_G)\Big) \in E_H$$
+    Par définition de $\varphi$ ceci équivaut à~:
+    $$ \forall (u_G, v_G) \in E_G,\, \Big(\varphi(u_G),\varphi(v_G)\Big) \in E_H$$
+    et traduit exactement le caractère isomorphe de $G$ et $H$.
+\end{itemize}
