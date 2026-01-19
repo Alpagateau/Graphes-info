@@ -1,0 +1,88 @@
+# LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.lb
+*.loa
+*.lof
+*.lot
+*.log
+*.xml
+*.out
+*.toc
+*.bcf
+*.top
+*.tmp
+*.auxlock
+
+# Intermediate files
+*.dvi
+*.xdv
+*.ps
+
+# PDF output
+*.pdf
+
+# SyncTeX
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+
+# BibTeX
+*.bib.bak
+
+# MiKTeX
+miktex/
+
+# Texpad
+.texpadtmp
+
+# LyX
+*.lyx~
+*.lyx#
+
+# Kile
+*.kilepr
+*.klg
+
+# KBibTeX
+*.bib~
+
+# auto folder when using emacs.el
+./auto/
+
+# expex forward references with \gathertags
+*-tags.tex
+
+# standalone packages
+*.sta
+
+# Latexian
+TSWLatexianTemp*
+
+# CTAN unpacking
+doc/
+
+# siunitx
+*.sagetex.sage
+*.sagetex.py
+*.sagetex.scmd
+
+# pythontex
+*.pytxcode
+pythontex-files-*/
+
+# tktiz
+*.figlist
+
+# sagetex
+*.sagetex.sage
+*.sagetex.py
+*.sagetex.scmd

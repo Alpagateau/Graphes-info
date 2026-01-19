@@ -1,0 +1,26 @@
+\subsection{Description des données}
+J'ai utilisé un jeu de données portant sur des bières artisanales, décrivant chaque produit à l’aide de caractéristiques chimiques, sensorielles et contextuelles. Après un prétraitement des données, ont été retenues les variables qualitatives suivantes~:\\
+\begin{itemize}
+    \item \code{abv} : Niveau d’alcool, qui de base est quantitatif
+    \item \code{ibu} : Intensité de l’amertume, mesurée par l’IBU\cite{6}, également quantitative
+    \item \code{beer\_name} : Désignation commerciale du produit
+    \item \code{style} : Catégorie brassicole (IPA, Pale Ale, Lager, Stout, \textit{etc}.)
+    \item \code{ounces} : Volume de conditionnement de la bière, normalement quantitatif mais dont le support est assez restreint pour pouvoir considérer la variable comme qualitative
+    \item \code{brewery\_name} : Nom du producteur de la bière
+    \item \code{city} : Ville d’implantation de la brasserie
+    \item \code{state} : État ou région de production
+\end{itemize}
+
+\subsection{Prétraitement des données}
+Les variables \code{abv} (teneur en alcool) et \code{ibu} (amertume), initialement quantitatives continues, ont été discrétisées en classes ordinales afin de les rendre compatibles avec l'analyse des composantes multiples qui repose sur des variables qualitatives.\\\par
+Cette discrétisation a été réalisée par partition en quantiles\cite{5}, chaque variable étant découpée en autant de classes que possible\footnote{14 pour \code{abv} et 20 pour \code{ibu}} contenant quasiment le même nombre d’observations.\\\par
+Après suppression des lignes présentant des cases vides, il restait $I = 1403$ instances, dont les premières sont présentées en figure~\ref{fig:csv}
+
+\begin{figure}[H]
+    \centering
+    \scriptsize 
+    % On définit bien 9 colonnes (l=fixe, X=flexible)
+    \input{figures/csv}
+    \caption{Jeu de données}
+    \label{fig:csv}
+\end{figure}

@@ -1,0 +1,55 @@
+\subsection{Test du $\chi^2$}
+J'obtiens à l'issue du test du $\chi^2$ une matrice, présentée en figure~\ref{fig:independance} indiquant pour chaque paire de variables l'indépendance entre celles-ci. Pour déterminer $\chi_\mr{crit}$, j'ai choisi comme paramètre $\alpha = 0,05$.\\ \par
+\begin{figure}[H]
+    \centering
+    \input{figures/independance}
+    \caption{Matrice d'indépendance entre les variables}
+    \label{fig:independance}
+\end{figure}
+On remarque que plusieurs variables sont dépendantes entre elles, notamment \code{state} et \code{region}, ce qui est logique puisque chaque état appartient à une région bien définie des États-Unis. De même, \code{brewery\_type} et \code{size} sont dépendantes, ce qui est également cohérent puisque le type de brasserie influence la taille de conditionnement d'une bière.\par
+À l'inverse, plusieurs variables sont indépendantes entre elles, comme \code{abv} et \code{ibu}, ce qui suggère que le taux d'alcool d'une bière n'influence pas son amertume. De même, \code{style} et \code{state} sont indépendantes, informant que le style de bière n'est pas lié à son origine géographique.\par
+
+\subsection{Analyse des correspondances multiples}
+
+On applique l'analyse des correspondances multiples (ACM) aux données dans l'optique de déterminer les principaux axes de division. On calcule les valeurs propres et les vecteurs propres de la matrice $G$ définie précédemment. La figure~\ref{fig:valeurs-propres} présente les valeurs propres en fonction de l'indice des axes factoriels. On remarque que les valeurs propres décroissent rapidement, indiquant que les premiers axes factoriels capturent une grande partie de la variance des données. Cela suggère néanmoins que quelques centaines d'axes différents pourraient significativement caractériser le jeu de données.\par
+Nous nous contentons ici d'analyser les deux premiers axes factoriels, qui capturent une part significative de l'information. Ceux-ci seront utilisés pour visualiser les données dans un espace réduit et interpréter les relations entre les variables catégorielles.\par
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/valeurs-propres.pdf}
+    \caption{Valeurs propres issues de l'analyse des correspondances multiples}
+    \label{fig:valeurs-propres}
+\end{figure}
+
+La figure~\ref{fig:axe1-acm} illustre l’opposition principale révélée par le premier axe factoriel de l’analyse des correspondances multiples. Cet axe oppose, du côté négatif, des bières de type \textit{American Adjunct Lager}, associées à une production industrielle standardisée et concentrée autour d’une même brasserie et d’une même localisation, à des bières craft à forte identité, telles que les \textit{Double IPA} du côté positif.\par
+
+\begin{figure}[H]
+    \centering
+    \input{figures/axe1-acm}
+    \caption{Modalités réalisant les comportements extrêmes sur l'axe de poids fort}
+    \label{fig:axe1-acm}
+\end{figure}
+
+Les modalités géographiques apparaissent sur cet axe non comme des facteurs explicatifs directs, mais comme des variables fortement corrélées aux styles de bières dominants dans le jeu de données. Ainsi, le premier axe traduit principalement un gradient d’intensité et de spécialisation du produit, opposant bières légères et homogènes à des bières plus complexes, distinctives et issues de brasseries plus locales.\\\par
+Le second axe factoriel (figure~\ref{fig:axe2-acm}) oppose des bières à forte complexité aromatique et alcoolique, telles que les \emph{American Barleywine}, \emph{Black IPA} ou bières à haut degré, à des bières plus simples et traditionnelles, principalement des lagers de consommation courante.
+
+Contrairement au premier axe, cet axe traduit davantage une différenciation liée à la richesse sensorielle et au degré d’élaboration du produit, indépendamment du caractère industriel ou local. Il met en évidence un gradient de complexité gustative et d'intensité alcoolique.
+
+
+\begin{figure}[H]
+    \centering
+    \input{figures/axe2-acm}
+    \caption{Modalités réalisant les comportements extrêmes sur le deuxième axe de poids fort}
+    \label{fig:axe2-acm}
+\end{figure}
+
+Pour finir, la figure~\ref{fig:instances} présente la projection des instances (bières) sur les deux premiers axes factoriels. On observe une dispersion des bières selon leurs caractéristiques, avec une concentration notable de bières industrielles dans le quadrant inférieur gauche, tandis que les bières artisanales plus complexes se répartissent dans les autres quadrants.\par
+Cette visualisation permettrait d'identifier des groupes de bières.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/instances.pdf}
+    \caption{Projection des instances (bières) sur les deux premiers axes factoriels}
+    \label{fig:instances}
+\end{figure}
+
