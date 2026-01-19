@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{graphicx} % pour inclure images
 \usepackage{amsmath}  % maths si nécessaire
+\usepackage{amssymb}  % maths si nécessaire
 \usepackage{booktabs} % tableaux pro Pour des lignes plus jolies
 \usepackage{tabularx} % Pour l'ajustement automatique de la largeur
 
@@ -76,9 +77,11 @@
     {Â}{{\^{A}}}1%
     {Î}{{\^{I}}}1
 }}{}
+
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\code}{\texttt}
 \newcommand{\mr}{\mathrm}
-\newcommand{\deg}[0]{\mathrm{deg}}
+\renewcommand{\deg}[0]{\mathrm{deg}}
 \newcommand{\card}[1]{\lvert #1 \rvert}
 
 
