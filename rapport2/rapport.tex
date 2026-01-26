@@ -4,7 +4,7 @@
 \usepackage{graphicx} % pour inclure images
 \usepackage{amsmath}  % maths si nécessaire
 \usepackage{amssymb}  % maths si nécessaire
-\usepackage{stmaryrd} %crochet maths
+% \usepackage{stmaryrd} %crochet maths
 \usepackage{booktabs} % tableaux pro Pour des lignes plus jolies
 \usepackage{tabularx} % Pour l'ajustement automatique de la largeur
 
@@ -93,6 +93,8 @@
 
 \begin{document}
 
+\pagenumbering{roman} % pages préliminaires
+
 \begin{titlepage}
     \centering
 
@@ -122,6 +124,8 @@
 %\maketitle
 \tableofcontents
 \newpage
+
+\pagenumbering{arabic} % début du vrai document
 
 \section*{Exercice 1}
 \input{section/section1.tex}
