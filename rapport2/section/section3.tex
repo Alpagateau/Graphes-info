@@ -1,1 +1,12 @@
 %
+Soit $G= (V,E)$ un graphe. On souhaite d'abord montrer $1 \Rightarrow 2$ ou 
+$$
+  G \text{ est un arbre } \Rightarrow G \text{est connexe et minimal}
+$$
+
+Supposons que $G$ un arbre, non minimal.
+On note $G_1$ le graphe connexe formé en supprimant une arrète $e_1$ de $G$, reliant les sommets $v_1, v_2 \in V$.\newline
+$G_1$ étant connexe, on a l'existance d'un chemin entre $v_1$ et $v_2$, noté $w$.\newline
+Or, $G_1 = G/e_1$, donc $w \in G$. Ainsi, il existes deux chemins allant de $v_1$ a $v_2$, il y a donc un cycle. 
+Cela est une contradiction avec la supposition que $G$ soit un arbre.
+Ainsi, $G$ est minimal.
