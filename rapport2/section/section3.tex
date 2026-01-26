@@ -1,41 +1,25 @@
-\begin{enumerate}
-  
-\item{}
+%
+Soit $G = (V,E)$ un graphe. On souhaite d'abord montrer $1 \Rightarrow 2$ ou 
+$$
+  G \text{ est un arbre } \Rightarrow G \text{ est connexe et minimal}
+$$
 
- \includegraphics[width=0.5\textwidth]{figures/Ex2Q1.png}
-
-
-
-\item{}
-Passer d'un sommet à un autre par une arête revient à changer un bit de 0 à 1 ou vice-versa donc la distance entre les sommets 0101000111 et 0110100010 est égale au nombre de bit différent soit une distance de 5.
-
-
-\item{}
-0101000111 →
-0111000111 →
-0110000111 →
-0110100111 →
-0110100011 →
-0110100010
-
-est un plus court chemin allant de 0101000111 à 0110100010.
-
-\item{}
-\begin{lstLNat}
-    fonction distance(a: entier, b:entier) $\rightarrow$ entier 
-    début
-    d=0
-    tant que (a != 0 et b!= 0) 
-      si a\%2 != b\%2 
-          d = d + 1
-      fin_si
-      a = a/2
-      b = b/2
-    fin_tant_que
-    retourner d
-    fin 
-
-\end{lstLNat}
-\end{enumerate}
-
-
+Supposons que $G$ un arbre, non minimal.
+On note $G_1$ le graphe connexe formé en supprimant une arrète $e_1$ de $G$, reliant les sommets $v_1, v_2 \in V$.\newline
+$G_1$ étant connexe, on a l'existance d'un chemin entre $v_1$ et $v_2$, noté $w$.\newline
+Or, $G_1 = G/e_1$, donc $w \in G$. Ainsi, il existes deux chemins allant de $v_1$ a $v_2$, il y a donc un cycle. 
+Cela est une contradiction avec la supposition que $G$ soit un arbre.
+Ainsi, $G$ est minimal.
+\newline
+\newline
+Soit $G = (V,E)$ un graphe. On souhaite montrer $2 \Rightarrow 3$ ou 
+$$
+  G \text{ est un connexe minimal } \Rightarrow |V_G| = |E_G| + 1
+$$
+\begin{itemize}
+\item Soit le singleton $S = \{\{1\}, \emptyset\}$ On remarque de $S$ est connexe minimal, et que $|V_S| = 1 ; |E_S| = 0$, donc $S$ vérifie $|V_S| = |E_S| + 1$.
+\item Soit un graphe $G_1 = \{V_G_1, E_G_1\}$ connexe minimal et vérifiant $|V_G_1| = |E_G_1| + 1$.
+  De $G_1$ on construit un nouveau graphe, $G_2 = \{ V_G_1 \cup \{x\}, E_G_1 \cup \{x, v\}\}, x \notin V_G_1, v \in V_G_1$ 
+  Ainsi, $G_2$ est connexe minimal, car connexe et acyclique, et $|V_G_2| = |V_G_1| + 1 = |E_G_1| + 2 = |E_G_2| + 1$
+\item On par construction que tout arbre connexe minimal peut etre construit par l'induction ci-dessus, et chacun vérifie la propriété $|V| = |E| + 1$. Donc tout graphe connexe minimal vérifie cette propriété.
+\end{itemize}
