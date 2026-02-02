@@ -1,1 +1,32 @@
-%
+\begin{lstLNat}
+    fonction existeArc(i,j:sommet; G : graphe) : booléen
+    début
+      si G[i,j] = 1
+        retourner vrai
+      sinon 
+        retourner faux
+    fin
+\end{lstLNat}
+
+
+\includegraphics[width=0.5\textwidth]{figures/ex6-1.jpg}
+
+
+\begin{lstLNat}
+    fonction ajoutArc(i,j:sommet; G:graphe)
+    début
+      G[i,j]=1
+    fin
+\end{lstLNat}
+
+\includegraphics[width=0.5\textwidth]{figures/ex6-2.jpg}
+
+\begin{lstLNat}
+    fonction supprimerArc(i,j:sommet; G:graphe)
+    début
+      G[i,j]=0
+    fin
+
+\end{lstLNat}
+
+\includegraphics[width=0.5\textwidth]{figures/ex6-3.jpg}

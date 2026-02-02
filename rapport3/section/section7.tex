@@ -1,0 +1,28 @@
+\begin{lstLNat}
+    fonction existeArc(i,j:sommet; G : graphe) : booléen
+    début
+      retourner appratient(j,G[i]) 
+    fin
+\end{lstLNat}
+
+\includegraphics[width=0.5\textwidth]{figures/ex7-1.jpg}
+
+\begin{lstLNat}
+    fonction ajoutArc(i,j:sommet; G:graphe)
+    début
+      si non(appratient(i,j,G)) 
+        ajouter(j,G[i])
+    fin
+\end{lstLNat}
+    
+\includegraphics[width=0.5\textwidth]{figures/ex7-2.jpg}
+
+\begin{lstLNat}
+    fonction supprimerArc(i,j:sommet; G:graphe)
+    début
+      si (appratient(i,j,G))
+        supprimer(j,G[i])
+    fin
+\end{lstLNat}
+
+\includegraphics[width=0.5\textwidth]{figures/ex7-3.jpg}
