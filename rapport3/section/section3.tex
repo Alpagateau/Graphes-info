@@ -1,10 +1,12 @@
-Pour $G$ un graphe, et $e = \{a, b\} \in G_E$ une arète de ce graphe, on pose $G/e$ le graphe quotient obtenu en regroupant les sommets $a$ et $b$ de $G$. \newline
-On pose la mesure $\|{G}\| = Card( E_G / {{e} \in E_G} )$. \newline
-Soit $\psi : \mathbb{G} \rightarrow \mathbb{R}_+$\footnote{$\mathbb{G} : L'ensemble des graphes$} définie comme : \newline
-Soit un graphe $G \in \mathbb{G} = \{V, E\}$ \newline
-Soit $e \in E$ \newline
-Alors :
-$$
-  \psi(G) = G/e
-$$
-\newline
+Pour $G$ un graphe, on pose $\norm{G}$ le nombre d'arêtes de $G$ qui ne sont pas des boucles. On définit alors $\Psi(G)$ comme le graphe issu de $G$, dont on a choisi une arête $\{u,v\}$ qui ne soit pas une boucle ($u \neq v$), puis fusionné les sommets $u$ et $v$ en un sommet $w$ de sorte que toute arête incidente en $u$ ou $v$ soit incidente en $w$. $\Psi$ décrémente par construction la mesure du graphe qu'elle transforme, puis nous allons montrer qu'elle préserve bien la connexité, la non connexité, l'acyclicité et la non acyclicité.
+
+\begin{itemize}
+    \item Si $G$ est connexe, alors le graphe obtenu par fusion des sommets d'une arête $e$ est encore connexe. Moralement on "recoud les trous".
+    \item Si $G$ est non connexe, la contraction d’une arête appartenant à une composante connexe ne peut pas relier deux composantes distinctes. Le graphe $\Psi(G)$ reste donc non connexe.
+    \item Si $G$ est acyclique, considérons par l'absurde l'existence d'un cycle de $\Psi(G)$. Comme $G$ est acyclique, c'est la fusion des sommets $u$ et $v$ de $G$ qui est en cause de l'existence de ce cycle : notons $w$ le sommet créé. Ainsi, il existait le chemin $a \rightarrow u \rightarrow v \rightarrow b$ dans $G$ qui est devenu $a \rightarrow w \rightarrow b$ dans $\Psi(G)$. Le reste n'a pas été changé. Donc $G$ est cyclique, ce qui contredit l'hypothèse de départ. On conclut alors que $\varPsi(G)$ est acyclique.
+    \item Si $G$ contient un cycle, alors~:
+    \begin{itemize}
+        \item soit l’arête dont les sommets sont fusionnés n’appartient pas au cycle, auquel cas le cycle est conservé ;
+        \item soit l’arête dont les sommets sont fusionnés appartient au cycle, auquel cas le cycle perd une arête comme expliqué précedement, mais ne disparait pas.
+    \end{itemize}
+\end{itemize}
