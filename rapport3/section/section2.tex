@@ -1,12 +1,9 @@
-Soit un graphe $G$ non orienté. Soit $x$ un sommet de $G$ de degré 1 et $e$ son unique arête.
-$x$ appartient à une composante connexe de $G$ qui est composé d'au moins deux sommet ca $x$ est de degré 1. Donc en retirant le sommet $x$, le sous graphe obtenu a le même nombre de composante connexe, celles différentes de $X$ sont inchangé et $X$  est toujours une composante connexe avec au moins un sommet.
-Donc si $G$ est connexe alors le sous graphe de $G$ est connexe, sinon il reste non connexe.
+Soit un graphe $G$ non orienté. Soit $x$ un sommet de $G$ de degré $1$ et $e$ son unique arête. $x$ appartient à une composante connexe $X$ de $G$ qui est composée d'au moins deux sommet car $x$ est de degré $1$. Donc en retirant le sommet $x$, le sous graphe obtenu a le même nombre de composantes connexes, celles différentes de $X$ sont inchangés et $X$ est toujours une composante connexe avec au moins un sommet.
+Donc si $G$ est connexe alors le sous-graphe de $G$ est connexe, sinon il reste non connexe.\\\par
 
-\paragraph{}
+Tout sommet d'un cycle est de degré au moins $2$. Or $x$ est de degré 1 donc il ne peut pas appartenir à un cycle. 
+Donc si $G$ est cyclique, alors il existe un cycle ne passant pas par $x$. Donc le sous-graphe obtenu en retirant $x$ conserve ce cycle. D'où la conservation de la non-acyclicité par $\Psi$.
 
-Pout tout cycle, chaque sommet est de degré au moins 2. Or $x$ est de degré 1 donc il ne peut pas appartenir à un cycle. 
-Donc si $G$ est cyclique, alors il existe un cycle ne passant pas par $x$. Donc le sous-graphe obtenu en retirant $x$ conserve ce cycle. D'où la conservation de la non acyclicité par $\Psi$.
-
-De plus, retirer un sommet et une arête ne peut pas créer de cycle donc $\Psi$ conserve aussi l'acyclicité.
+De plus, retirer un sommet et une arête ne peut pas créer de cycle d'après le premier exerice, d'où $\Psi$ conserve aussi l'acyclicité.
 
 
