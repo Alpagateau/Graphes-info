@@ -1,0 +1,104 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx} % pour inclure images
+\usepackage{amsmath}  % maths si nécessaire
+\usepackage{amssymb}  % maths si nécessaire
+% \usepackage{stmaryrd} %crochet maths
+\usepackage{booktabs} % tableaux pro Pour des lignes plus jolies
+\usepackage{tabularx} % Pour l'ajustement automatique de la largeur
+
+% Language setting
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc} 
+
+% Set page size and margins
+\usepackage[letterpaper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,marginparwidth=1.75cm]{geometry}
+
+
+% Useful packages
+\usepackage{multicol} % colonnes
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{float} % pour que les figures se placent bien
+\usepackage{listings} % pour inclure du code
+\usepackage{caption} % pour centrer les captions malgré les \\
+\captionsetup{justification=centering}
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\code}{\texttt}
+\newcommand{\mr}{\mathrm}
+\renewcommand{\deg}[0]{\mathrm{deg}}
+\newcommand{\card}[1]{\lvert #1 \rvert}
+\newcommand{\intint}[2]{\llbracket #1 ,\, #2 \rrbracket}
+\newcommand{\fonction}[5]{%
+  \begin{align*}
+    #1 :\ & #2 \longrightarrow #3 \\
+          & #4 \longmapsto #5
+  \end{align*}
+}
+
+
+\include{../listings}
+
+
+
+\title{Rapport du TD03}
+\author{Loïs Page \& Martin Nadaud \& Raphaël Jontef}
+\date{S6 - Année 2025/2026}
+
+\begin{document}
+
+\pagenumbering{roman} % pages préliminaires
+
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+    \centering
+
+    \vspace*{1.5cm}
+
+    {\Huge\bfseries Rapport du TD03\par}
+
+    \vspace{0.8cm}
+
+    {\LARGE Théorie des graphes\par}
+
+    \vspace{1.8cm}
+    Loïs Page \& Martin Nadaud \& Raphaël Jontef
+
+    \vfill
+
+    {\large
+    Semestre 6\\
+    ENSEIRB-MATMECA
+    \par}
+
+    \vspace{1cm}
+
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+
+%\maketitle
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic} % début du vrai document
+
+\section{Exercice 1}
+\input{section/section1.tex}
+\newpage
+\section{Exercice 2}
+\input{section/section2.tex}
+\newpage
+\section{Exercice 3}
+\input{section/section3.tex}
+
+
+\end{document}
+
+
+
