@@ -1,10 +1,7 @@
 \begin{lstLNat}
-    fonction existeArc(i,j:sommet; G : graphe) : booléen
-    début
-      si G[i,j] = 1
-        retourner vrai
-      sinon 
-        retourner faux
+    fonction existeArc(i : entier, j : entier, G : graphe) : booléen
+    debut
+        retourner G.estArc[i][j] == 1;
     fin
 \end{lstLNat}
 
@@ -13,20 +10,19 @@
 
 
 \begin{lstLNat}
-    fonction ajoutArc(i,j:sommet; G:graphe)
-    début
-      G[i,j]=1
+    fonction ajoutArc(i : entier, j : entier, G : graphe)
+    debut
+        G.estArc[i][j] <- 1;
     fin
 \end{lstLNat}
 
 \includegraphics[width=0.5\textwidth]{figures/ex6-2.jpg}
 
 \begin{lstLNat}
-    fonction supprimerArc(i,j:sommet; G:graphe)
-    début
-      G[i,j]=0
+    fonction supprimerArc(i : entier, j : entier, G : graphe)
+    debut
+        G.estArc[i][j] <- 0;
     fin
-
 \end{lstLNat}
 
 \includegraphics[width=0.5\textwidth]{figures/ex6-3.jpg}
