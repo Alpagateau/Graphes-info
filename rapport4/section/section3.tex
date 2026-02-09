@@ -3,9 +3,6 @@
     \includegraphics[width=0.5\textwidth]{figures/ex3q1.png}
   \item 
     \includegraphics[width=0.5\textwidth]{figures/ex3q2.png}
-  \item 
-    Les labyrinthes pour lesquels \texttt{àDroite()} permet de sortir sont ceux qui n'ont pas de cycle composé de sommet accessible par la méthode \texttt{àDroite()}.
-    Il n'y a pas de cycle et étant donné qu'après être sortie d'une porte donné la porte suivante est toujours la même, chaque arête ne peut être emprunté que au plus 2 fois (une fois dans chaque sens), donc la comlexité est en \texttt{O(nombre d'arête)}.
-
+  \item Sans considérer l'ordre dans lequel les portes sont stockées, La seule possibilité pour ne pas trouver la sortie est de boucler indéfinement sur un cycle de portes. Or, si un tel cycle existe, il est forcément composé de portes accessibles par la fonction \texttt{àDroite}, et réciproquement, si un tel cycle n'existe pas alors il n'est pas possible de boucler indéfiniment et on finit forcément par trouver la sortie. Sans la présence de cycle, on parcourt au plus une fois chaque arête, donc la complexité est en $\mathcal{O}(\texttt{nombre de portes})$.
 \end{enumerate}
 
