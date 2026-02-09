@@ -8,6 +8,10 @@ rapport2:
 
 rapport3:
 	cd rapport3 && pdflatex rapport.tex
+	
+rapport4:
+	cd rapport4 && pdflatex rapport.tex
+
 
 clean:
 	find rapport1 rapport2 rapport3\
@@ -17,4 +21,4 @@ clean:
 	! -name "*.tex" \
 	-exec rm -f {} +
 
-.PHONY: rapport1 rapport2 rapport3  clean
+.PHONY: rapport1 rapport2 rapport3 rapport4 clean

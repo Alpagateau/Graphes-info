@@ -1,0 +1,55 @@
+\newcommand{\esp}{\mathbb{E}_{L}}
+\newcommand{\proba}{\mathbb{P}}
+
+
+\begin{enumerate}
+    \item $\esp(L+1)$ est conjecturé polynomial non linéaire en $L$.
+    \item Pour $i \in [1, L]$, notons $X_i$ la variable aléatoire donnant la longueur du chemin de $i$ à la sortie. Si existence (car $X_i(\Omega) = \N$), on a $\esp(i) = \mathbb{E}(X_i)$.
+    \begin{itemize}
+        \item Dans le problème la probabilité pour Thésée de passer de $L+1$ en $L$ vaut 1, il est donc clair que $\esp(L+1) = 1 + \esp(L)$. Puis, étant arrivé au sommet de sortie $0$, l'espérance de la longueur du chemin pour sortir est nulle, car Thésée est déjà sorti. Donc $\esp(0) = 0$.
+        \item En reprenant les notations convenues, notons $A_i$ l'évènement $\{$Thésée passe du sommet $i+1$ au sommet $i\}$. On écrit pour $i \in [0, L-1]$~:
+        \begin{align*}
+            \forall k \in \N,\, \proba(X_{i+1} = k) &=  \proba(X_{i+1} = k \cap A_i) + \proba(X_{i+1} = k \cap \overline{A_i}) \\
+            &= \proba(A_i)\proba(X_{i+1} = k \mid A_i)  + \proba(\overline{A_i})\proba(X_{i+1} = k \mid \overline{A_i})  \\
+            &= \frac{1}{2}\proba(X_{i} = k-1)  + \frac{1}{2}\proba(X_{L+1} = k-1) 
+        \end{align*}
+        Puis sous réserve d'existence~:
+        \begin{align*}
+            \esp(i+1) &= \sum_{k=0}^{\infty} k \proba(X_{i+1} = k) \\
+            &= \sum_{k=0}^{\infty} k \left( \frac{1}{2}\proba(X_{i} = k-1)  + \frac{1}{2}\proba(X_{L+1} = k-1)  \right) \\
+            &= \frac{1}{2}\sum_{k=1}^{\infty} k \big( \proba(X_{i} = k-1)  + \proba(X_{L+1} = k-1)  \big) \\
+            &= \frac{1}{2}\sum_{k=0}^{\infty} (k+1) \big( \proba(X_{i} = k)  + \proba(X_{L+1} = k)  \big) \\
+            &= \frac{1}{2}\sum_{k=0}^{\infty} k \big( \proba(X_{i} = k)  + \proba(X_{L+1} = k)  \big) + \frac{1}{2}\sum_{k=0}^{\infty} \big( \proba(X_{i} = k)  + \proba(X_{L+1} = k)  \big) \\
+            &= \frac{1}{2}\sum_{k=0}^{\infty} k \proba(X_{i} = k)  + \frac{1}{2}\sum_{k=0}^{\infty} k \proba(X_{L+1} = k)  + \frac{1}{2}\sum_{k=0}^{\infty} \proba(X_{i} = k)  + \frac{1}{2}\sum_{k=0}^{\infty} \proba(X_{L+1} = k)  \\
+            &= \frac{1}{2}\esp(i) + \frac{1}{2}\esp(L+1) + 1
+        \end{align*}
+        D'où le résultat.
+    \end{itemize}
+    \item Notons maintenant $u_i = \esp(i)$. on a d'après la question précédente~:
+    $$u_{i+1} = \frac{1}{2}u_i + \underbrace{\frac{1}{2}u_{L+1} + 1}_{:=C}$$
+    $(u_i)_i$ est une suite récurrente affine d'ordre 1. Une solution constante $(\lambda)_i$ vérifie~:
+    $$\lambda = \frac{1}{2}\lambda + C$$
+    d'où $\lambda = 2C$. On a donc~:
+    $$\begin{cases}
+        u_{i+1} = \frac{1}{2}u_i + C\\
+        \lambda = \frac{1}{2}\lambda + C
+     \end{cases} \implies u_{i+1} - \lambda = \frac{1}{2}(u_i - \lambda)$$
+    D'où~:
+    \begin{align*}
+        u_{i} - \lambda &= \frac{1}{2^i}(u_0 - \lambda)\\
+        \implies u_{i} &= \lambda + \frac{1}{2^i}(u_0 - \lambda)\\
+        \implies u_{i} &= \lambda - \frac{1}{2^i}\lambda \quad \text{car } u_0 = 0\\
+        \implies u_{i} &= 2C\left(1 - \frac{1}{2^i}\right)\\
+        \implies u_{i} &= \Big(2 + \esp(L+1)\Big)\left(1 - \frac{1}{2^i}\right)
+    \end{align*}
+
+    En particulier, pour $i = L+1$~:
+    $$\esp(L+1) = u_{L+1} = \Big(2 + \esp(L+1)\Big)\left(1 - \frac{1}{2^{L+1}}\right)$$
+    \item De la dernière équation il vient~:
+    \begin{align*}
+        \esp(L+1) &= 2\left(1 - \frac{1}{2^{L+1}}\right) + \esp(L+1)\left(1 - \frac{1}{2^{L+1}}\right)\\
+        \implies \esp(L+1)\frac{1}{2^{L+1}} &= 2\left(1 - \frac{1}{2^{L+1}}\right)\\
+        \implies \esp(L+1) &= 2^{L+2} - 2
+    \end{align*}
+    $\esp(L+1)$ est donc exponentielle en $L$. La conjecture était fausse.
+\end{enumerate}
