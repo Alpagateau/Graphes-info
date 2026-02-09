@@ -1,15 +1,43 @@
-Voici un exemple d'algorithme qui permet de traverser un labyrinthe. 
-\begin{verbatim}
-algo : MarkedLeftTurn
-tant que non sortie:
-  si existe porte non rouge :
-    organiser les portes sur un plan
-    passer la premiere porte non rouge dans le sens horraire
-  sinon
-    prendre une porte au hasard
-  fin 
-  marquer de rouge la porte traversée
-fin
-\end{verbatim}
+On associe les couleurs de la façon suivante~:
+\begin{itemize}
+    \item Rouge : salle déjà visitée
+    \item Blanc : couloir jamais emprunté
+    \item Bleu : couloir emprunté une fois : on peut remonter par là
+    \item Vert : couloir emprunté deux fois : on a fait l'allez-retour.
+\end{itemize}
 
-Cette algorithme ne fournit pas le chemin le plus cours, mais permet de courvrire relativement rapidement l'entièreté du graphe. En effet, l'utilisation de l'aleatoire permet de s'assurer qu'on traverse toutes le noeuds, et l'utilisation du marquage permet de reduire le nombre de fois que thésé passe au même endroit. 
+\begin{lstLNat}
+    algo quitter_labyrinthe
+    tantque non(estSalleSortie()) faire
+    debut
+        si non(estSalleRouge()) alors
+        debut
+            marquerSalleRouge()
+        fin
+        si existeCouloirBlanc() alors
+        debut
+            accederPorteBlanche()
+            traverserCouloir()
+            marquerCouloirBleu()
+        fin
+        sinon
+        debut
+            si existeCouloirBleu() alors
+            debut
+                accederPorteBleue()
+                traverserCouloir()
+                marquerCouloirVert()
+            fin
+        fin
+    fin
+
+\end{lstLNat}
+
+Cet algorithme parcourt au plus deux fois chaque couloir. L'algorithme est donc de complexité temporelle linéaire en le nombre de couloirs. Les tests ont été effectués sur les labyrinthes suivants~:
+
+\begin{itemize}
+    \item Grille $5\times 5$, Thésée explore toute la grille, il finit par trouver la sortie.
+    \item Graphe complet de 5 sommets, Thésée explore tous les couloirs, il finit par trouver la sortie
+\end{itemize}
+
+De façon générale les cycles sont prevenus par le marquage des salles et couloirs déjà visités, ce qui garantit que l'algorithme finit par trouver la sortie un en temps fini et moindre.
