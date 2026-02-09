@@ -1,0 +1,15 @@
+Voici un exemple d'algorithme qui permet de traverser un labyrinthe. 
+\begin{verbatim}
+algo : MarkedLeftTurn
+tant que non sortie:
+  si existe porte non rouge :
+    organiser les portes sur un plan
+    passer la premiere porte non rouge dans le sens horraire
+  sinon
+    prendre une porte au hasard
+  fin 
+  marquer de rouge la porte traversée
+fin
+\end{verbatim}
+
+Cette algorithme ne fournit pas le chemin le plus cours, mais permet de courvrire relativement rapidement l'entièreté du graphe. En effet, l'utilisation de l'aleatoire permet de s'assurer qu'on traverse toutes le noeuds, et l'utilisation du marquage permet de reduire le nombre de fois que thésé passe au même endroit. 
