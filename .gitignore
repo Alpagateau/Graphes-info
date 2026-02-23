@@ -28,6 +28,8 @@
 
 # PDF output
 *.pdf
+!indications.pdf
+!devoirs.pdf
 
 # SyncTeX
 *.synctex
