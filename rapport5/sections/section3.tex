@@ -1,0 +1,33 @@
+\begin{enumerate}
+    \item Lorsque l'arc $e_{i-1}$ est visité, le sommet $s_i$ est encore gris, car il existe au moins un chemin partant de celui-ci vers un sommet blanc ou gris.
+    \item lorsque l'arc $(c,a)$ est visité, le sommet $c$ est encore gris, car il existe au moins un chemin vers un sommet blanc ou gris partant de celui-ci.
+    \centering\includegraphics[width=0.5\textwidth]{IMG_E1071.JPG}
+    \item \begin{lstLNat}
+    fonction parcoursProfondeur(G : graphe)
+    debut
+        n <- dernierSommet(G) ; 
+        C <- allouerTableau(n,BLANC);
+
+        pour s de 1 à n faire 
+            si C[s]=BLANC alors
+                visiter(s,G,C);
+        retourner vrai()
+    fin
+
+    fonction visiter(s : sommet , G : graphe , C : tableau de couleurs)
+    debut
+        C[s] <- GRIS ;
+        L <- listeArcsSortants(s,G) ; 
+        k <- longueur(L) ; 
+
+        pour i de 1 à k faire
+            debut
+            t <- 2ndeExtrémité(iemeArc(i,L)) ;
+            si C[t] = BLANC alors
+                visiter(t,G,C)
+            sinon si C[t] = GRIS alors
+                retourner faux()
+        C[s] <- NOIR
+    fin
+    \end{lstLNat}
+\end{enumerate}

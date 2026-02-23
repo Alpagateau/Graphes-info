@@ -132,7 +132,7 @@ def update_dessin_et_labels():
     label_date.config(text = "Date : "+str(date))
     label_dGRIS.config(text = "dGRIS : "+str(dGRIS))
     label_dNOIR.config(text = "dNOIR : "+str(dNOIR))
-    dessiner_graphe(zone_dessin,matrice_graphe,coordonnees_sommets,coloration=coloration)
+    dessiner_graphe(zone_dessin, matrice_graphe, coordonnees_sommets, coloration=coloration)
     return
 
 def reinitialiser():
@@ -148,28 +148,46 @@ def reinitialiser():
     bsuivant.config(state=NORMAL)
     return
 
-def parcours_profondeur():
+def parcours_profondeur(matrice_graphe):
     global date,label_date,coloration,dGRIS,label_dGRIS,dNOIR,label_dNOIR,binit,bsuivant
     
+    liste_graphe = graphe_matrice2liste(matrice_graphe)
     N_sommets=len(matrice_graphe)
     liste_sommets=list(range(N_sommets))
     random.shuffle(liste_sommets)
     for sommet in liste_sommets:
         if coloration[sommet]=='white':
-            visiter(sommet)
+            visiter(sommet,liste_graphe)
     
     binit.config(state=NORMAL)
     bsuivant.config(state=DISABLED)
     return
 
-def visiter(sommet):
+def visiter(sommet, liste_graphe):
     global interface,date,label_date,coloration,dGRIS,label_dGRIS,dNOIR,label_dNOIR
-    
+    coloration[sommet] = 'gray'
+    date += 1
+    dGRIS[sommet] = date
+    update_dessin_et_labels()
+    interface.update()
+    time.sleep(0.5)
+    L = liste_graphe[sommet]
+    k = len(L)
+    for i in range(1, k):
+        t = L[i]
+        if coloration[sommet] == 'white':
+                visiter(t, liste_graphe)
+    date += 1
+    coloration[sommet] = 'black'
+    dNOIR[sommet] = date
+    update_dessin_et_labels()
+    interface.update()
+    time.sleep(0.5)
     
     #Pour metter à jour le dessin
     update_dessin_et_labels()
     interface.update()
-    time.sleep(2)
+    time.sleep(0.5)
 
     return
 
@@ -199,7 +217,8 @@ bquit.place(x=410,y=450)
 binit=Button(interface,text='Reinitialiser',command=reinitialiser, state= DISABLED)
 binit.place(x=10,y=450) 
 
-bsuivant=Button(interface,text='Parcours profondeur',command=parcours_profondeur)
+bsuivant=Button(interface,text='Parcours profondeur',command=lambda: parcours_profondeur(matrice_graphe))
+
 bsuivant.place(x=150,y=450) 
 
 label_date = Label(interface, text = "Date : "+str(date))
