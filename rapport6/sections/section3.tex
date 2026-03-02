@@ -4,7 +4,12 @@
     \includegraphics[width=0.3\textwidth]{ex3q1.png}
     \item
     Oui, cela est possible selon l'odre de relachement des arêtes. C'est d'ailleurs le cas dans le graphe en exemple aves les sommets 2 et 3. 
-    \item 
+    \item \begin{align*}
+    \code{d = [}&\code{00, -1, 02, 03,}\\
+    \code{02, }& \code{01, 00, 02, 03,}\\
+    &\code{02, 02, 00, 01,}\\
+    &+\infty\code{,}+\infty\code{, -3, -4]}
+\end{align*}
 
     \item 
     En un seul relachement dans le bon ordre, on peut avoir tous les sommets bien évalué. En effet, si on prend l'ordre des plus courts chemeins à chaque fois il suffit d'un seul relachement de chaque arêtes pour obtenir les distances minimales.
