@@ -1,5 +1,5 @@
 all:
-	make rapport7
+	make rapport8
 
 rapport1:
 	cd rapport1 &&	pdflatex rapport.tex
@@ -20,8 +20,13 @@ rapport5:
 rapport6:
 	cd rapport6 && pdflatex rapport.tex
 
+
 rapport7:
 	cd rapport7 && pdflatex rapport.tex
+
+
+rapport8:
+	cd rapport8 && pdflatex rapport.tex
 # clean:
 # 	find rapport*\
 # 	-type d -name figures -prune -o \
@@ -30,4 +35,4 @@ rapport7:
 # 	! -name "*.tex" \
 # 	-exec rm -f {} +
 
-.PHONY: rapport1 rapport2 rapport3 rapport4 rapport5 rapport6 rapport7#clean
+.PHONY: rapport1 rapport2 rapport3 rapport4 rapport5 rapport6 rapport7 rapport8#clean
