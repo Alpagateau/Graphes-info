@@ -1,11 +1,8 @@
 \begin{enumerate}
     \item La complexité temporelle d'un tel test est constante. En effet il s'agit de comparer \code{x.indice} \code{y.indice}. S'ils sont égaux, on renvoie \code{vrai()}, sinon on renvoie \code{faux()}.
-    \item Dans le pire des cas, on remplace quasiment toutes les cases du tableau \code{indices} pour faire correspondre les deux classes d'équivalence. Ainsi la complexité temporelle s'évalue en $\bigO(n)$, où $n$ est le nombre de sommets du graphe.
-    \item Au début, on effectuera une réaffectation d'une seule case du tableau \code{indices}, puis dans le pire cas, deux réaffectations, puis 3\dots jusqu'à avoir effectué $n-1$ opérations, où $n$ est le nombre de sommets. 
-    \begin{center}
-        \includegraphics[width=0.7\textwidth]{IMG_1127.jpg}
-    \end{center}
-    On effectue alors $\sum_{i=1}^{n-1} i$ réaffectations, d'où une complexité en $\bigO(n^2)$.
+    \item Dans tous les cas on explore toutes les cases du tableau \code{indices} pour faire lire (et éventuellement modifier) les deux classes d'équivalence. Ainsi la complexité temporelle s'évalue en $\bigO(n)$, où $n$ est le nombre de sommets du graphe.
+    \item On effectue à chaque appel $n$ opérations élémentaires. D'où une complexité quadratique en $n$ le nombre de sommets.
+
     \item \phantom{0}\begin{center}
         \includegraphics[width=0.8\textwidth]{img.jpeg}
     \end{center}
@@ -13,13 +10,13 @@
      \begin{center}
         \includegraphics[width=0.8\textwidth]{IMG_1128.jpg}
     \end{center}
-    Cela donne encore une complexité quadratique en le nombre de sommets.
+    On effectue alors $\sum_{i=1}^{n-1} i$ réaffectations, d'où une complexité en $\bigO(n^2)$. Cela donne encore une complexité quadratique en le nombre de sommets.
 
     \item On observe que le rang de la racine d'un sous-arbre, vaut sa hauteur incrémentée de 1. Ainsi si un sommet $p$ est le père d'un sommet $q$, on a $p = q+1$
     \item Pour changer la racine d'un arbre $A$, il faut faire l'union avec un arbre $B$ de rang supérieur ou égal à $A$~: $\rg(B) \geq \rg(A)$. Fort de cela, si la racine a changé $k$ fois, il a fallu réunir au moins $2^k$ sommets.
     \item Pour un appel à \code{UnionByrank}, on appelle deux fois \code{Find}. Ainsi on peut majorer la complexité par celle de $2n$ appels à \code{Find}. Puis, Un appel \code{Find(A)} coûte $\bigO\Big(\log(m_\code{A})\Big)$ où $m_\code{A}$ est le nombre de sommets de $\code{A}$. Cet entier $m_\code{A}$ peut être majoré par $m$ le nombre de sommets. Ainsi, par croissance du logarithme, la complexité d'un appel \code{Find(A)} est en $\bigO\Big(\log(m)\Big)$. Pour $2n$ appels, cela donne une complexité totale de $\bigO\Big(n \log(m)\Big)$.
     \item \phantom{0} \begin{center}
-        \includegraphics[width=0.4\textwidth]{IMG_1129.jpg}
+        \includegraphics[width=0.4\textwidth]{albzlgz.jpeg}
     \end{center}
 
 
