@@ -15,14 +15,18 @@ def generer_grille_complete(N):
         for j in range(N):
             V += [(i, j)]
             if i < N-1:
-                E += [(i, j), (i+1, j)]
+                E += [((i, j), (i+1, j))]
             if j < N-1:
-                E += [(i, j), (i, j+1)]
+                E += [((i, j), (i, j+1))]
     return V,E
 
 def fisher_yates(E):
     #renvoie une permutation aléatoire de la liste E
     E_permut=list(E)
+    for i in range(len(E)-1):
+        j=random.randint(i, len(E)-1)
+        E_permut[i], E_permut[j] = E_permut[j], E_permut[i]
+
     return E_permut
 
 def generer_labyrinthe(N):
@@ -32,11 +36,18 @@ def generer_labyrinthe(N):
     E=fisher_yates(E)
     #Au debut E' est vide (tous les murs sont présents)
     E_prime=[]
+    
     #Chaque sommet est initialement isole des autres
     classes=[Arbre_by_rank(None,0,i) for i in range(N**2)]
     
     #Pour chacune des "m" aretes de E, tester si ses extrémités sont dans des classes différentes
-    #Si oui, ajouter l'arete a E' (autrement dit, retirer le mur)
+    for ((x1,y1), (x2, y2)) in E:
+        if Find_arbre_by_rank(classes[x1*N + y1]) != Find_arbre_by_rank(classes[x2*N + y2]):
+            #Si oui, ajouter l'arete a E' (autrement dit, retirer le mur)
+            E_prime.append(((x1, y1), (x2,y2)))
+            Union_arbre_by_rank(x1*N + y1, x2*N + y2, classes)
+
+
     return V,E_prime
 
 def dessiner_graphe(canvas,sommets,aretes):

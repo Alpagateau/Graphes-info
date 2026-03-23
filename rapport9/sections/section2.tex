@@ -1,18 +1,18 @@
 Pour former la grille de $N \times N$ il suffit de faire une simple boucle : 
 \begin{lstPython}
-  def generer_grille_complete(N):
-      #on genere la grille complete de taille NxN
-      #V contiendra la liste des sommets et E la liste des arêtes
-      V,E=[],[]
-      for i in range(N):
-          for j in range(N):
-              V += [(i, j)]
-              if i < N-1:
-                  E += [(i, j), (i+1, j)]
-              if j < N-1:
-                  E += [(i, j), (i, j+1)]
-      return V,E
+    def generer_grille_complete(N):
+        #on genere la grille complete de taille NxN
+        #V contiendra la liste des sommets et E la liste des arêtes
+        V,E=[],[]
+        for i in range(N):
+            for j in range(N):
+                V += [(i, j)]
+                if i < N-1:
+                    E += [(i, j), (i+1, j)]
+                if j < N-1:
+                    E += [(i, j), (i, j+1)]
+        return V,E
 \end{lstPython}
 
 On obtient le résultat : 
-\includegraphics{src/scr.png}
+\includegraphics[width = 0.5\textwidth]{scr.png}

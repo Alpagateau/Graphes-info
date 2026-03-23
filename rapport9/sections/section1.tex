@@ -1,105 +1,119 @@
-Test Union-Find naif : 
-
-{0: 0, 1: 1, 2: 2, 3: 3, 4: 4}
-
-Union de (0, 2)
-
-{0: 2, 1: 1, 2: 2, 3: 3, 4: 4}
-
-Union de (1, 3)
-
-{0: 2, 1: 3, 2: 2, 3: 3, 4: 4}
-
-Union de (4, 1)
-
-{0: 2, 1: 3, 2: 2, 3: 3, 4: 1}
-
-Union de (1, 4)
-
-{0: 2, 1: 3, 2: 2, 3: 3, 4: 4}
-
-Union de (1, 3)
-
-{0: 2, 1: 3, 2: 2, 3: 3, 4: 4}
+Test Unir et trouver naïf : 
 
 
+\begin{verbatim}
+    {0: 0, 1: 1, 2: 2, 3: 3, 4: 4}
+    
+    Union de (0, 2)
+    
+    {0: 2, 1: 1, 2: 2, 3: 3, 4: 4}
+    
+    Union de (1, 3)
+    
+    {0: 2, 1: 3, 2: 2, 3: 3, 4: 4}
+    
+    Union de (4, 1)
+    
+    {0: 2, 1: 3, 2: 2, 3: 3, 4: 1}
+    
+    Union de (1, 4)
+    
+    {0: 2, 1: 3, 2: 2, 3: 3, 4: 4}
+    
+    Union de (1, 3)
+    
+    {0: 2, 1: 3, 2: 2, 3: 3, 4: 4}
+    
+    
+\end{verbatim}
 
-Test Union-Find arbre simple : 
+Test Unir et trouver arbre simple : 
 
-0 , 1 , 2 , 3 , 4 , 
-
-Union de (3, 4)
-
-0 , 1 , 2 , 4->3 , 4 , 
-
-Union de (2, 1)
-
-0 , 1 , 1->2 , 4->3 , 4 , 
-
-Union de (2, 0)
-
-0 , 0->1 , 0->1->2 , 4->3 , 4 , 
-
-Union de (4, 3)
-
-0 , 0->1 , 0->1->2 , 4->3 , 4 , 
-
-Union de (2, 3)
-
-4->0 , 4->0->1 , 4->0->1->2 , 4->3 , 4 , 
-
-
-Test Union-Find arbre_by_rank : 
-
-(0,r=0) , (1,r=0) , (2,r=0) , (3,r=0) , (4,r=0) , 
-
-Union de (1, 4)
-
-(0,r=0) , (1,r=1) , (2,r=0) , (3,r=0) , (1,r=1)->4 , 
-
-Union de (4, 0)
-
-(1,r=1)->0 , (1,r=1) , (2,r=0) , (3,r=0) , (1,r=1)->4 , 
-
-Union de (3, 4)
-
-(1,r=1)->0 , (1,r=1) , (2,r=0) , (1,r=1)->3 , (1,r=1)->4 , 
-
-Union de (3, 4)
-
-(1,r=1)->0 , (1,r=1) , (2,r=0) , (1,r=1)->3 , (1,r=1)->4 , 
-
-Union de (0, 1)
-
-(1,r=1)->0 , (1,r=1) , (2,r=0) , (1,r=1)->3 , (1,r=1)->4 , 
+\begin{verbatim}
+    
+    0 , 1 , 2 , 3 , 4 , 
+    
+    Union de (3, 4)
+    
+    0 , 1 , 2 , 4->3 , 4 , 
+    
+    Union de (2, 1)
+    
+    0 , 1 , 1->2 , 4->3 , 4 , 
+    
+    Union de (2, 0)
+    
+    0 , 0->1 , 0->1->2 , 4->3 , 4 , 
+    
+    Union de (4, 3)
+    
+    0 , 0->1 , 0->1->2 , 4->3 , 4 , 
+    
+    Union de (2, 3)
+    
+    4->0 , 4->0->1 , 4->0->1->2 , 4->3 , 4 , 
+\end{verbatim}
 
 
-Comparaison des temps d'execution des trois version de Union-Find : 
+Test Unir et trouver arbre\_by\_rank : 
 
 
-N = 1000
+\begin{verbatim}
+    (0,r=0) , (1,r=0) , (2,r=0) , (3,r=0) , (4,r=0) , 
+    
+    Union de (1, 4)
+    
+    (0,r=0) , (1,r=1) , (2,r=0) , (3,r=0) , (1,r=1)->4 , 
+    
+    Union de (4, 0)
+    
+    (1,r=1)->0 , (1,r=1) , (2,r=0) , (3,r=0) , (1,r=1)->4 , 
+    
+    Union de (3, 4)
+    
+    (1,r=1)->0 , (1,r=1) , (2,r=0) , (1,r=1)->3 , (1,r=1)->4 , 
+    
+    Union de (3, 4)
+    
+    (1,r=1)->0 , (1,r=1) , (2,r=0) , (1,r=1)->3 , (1,r=1)->4 , 
+    
+    Union de (0, 1)
+    
+    (1,r=1)->0 , (1,r=1) , (2,r=0) , (1,r=1)->3 , (1,r=1)->4 , 
+    
+    
+\end{verbatim}
 
-Union-Find naif : 0.02364945411682129 seconds 
 
-Union-Find arbre simple : 0.001886129379272461 seconds 
+Comparaison des temps d'exécution des trois version de Unir et trouver : 
 
-Union-Find arbre by rank : 0.0013015270233154297 seconds 
 
+
+\begin{verbatim}
+    N = 1000
+    
+    Unir et trouver naïf : 0.02364945411682129 secondes 
+    
+    Unir et trouver arbre simple : 0.001886129379272461 secondes 
+    
+    Unir et trouver arbre par rang : 0.0013015270233154297 secondes 
+    
 
 N = 5000
 
-Union-Find naif : 0.5867738723754883 seconds 
+Unir et trouver naïf : 0.5867738723754883 secondes 
 
-Union-Find arbre simple : 0.0325167179107666 seconds 
+Unir et trouver arbre simple : 0.0325167179107666 secondes 
 
-Union-Find arbre by rank : 0.006696224212646484 seconds 
+Unir et trouver arbre par rang : 0.006696224212646484 secondes 
 
 
 N = 10000
 
-Union-Find naif : 2.3697080612182617 seconds 
+Unir et trouver naïf : 2.3697080612182617 secondes 
 
-Union-Find arbre simple : 0.11365175247192383 seconds 
+Unir et trouver arbre simple : 0.11365175247192383 secondes 
 
-Union-Find arbre by rank : 0.013742208480834961 seconds 
+Unir et trouver arbre par rang : 0.013742208480834961 secondes 
 
+\end{verbatim}
