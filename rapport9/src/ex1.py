@@ -9,14 +9,18 @@ import random
 
     
 def Find_naif(x,dict_indices):
-    return 
+    return dict_indices[x]
 
 def Union_naif(x,y,dict_indices):
     #si x et y sont déjà dans le même ensemble, on ne fait rien
 
     #sinon ...
+    if Find_naif(x, dict_indices) != Find_naif(y, dict_indices) :
+        for i in range(len(dict_indices)):
+            if dict_indices[i] == x:
+                dict_indices[i] = y
+
     
-    return
 
 def Test_Union_Find_naif(N, printing=False):
     #d'abord nous construisons la structure naïve
@@ -51,17 +55,21 @@ class Arbre_simple :
             return self.parent.str_chaine_racines()+"->"+str(self.nom)
     
 def Find_arbre_simple(x):
-    return 
+    if x.parent == None:
+        return x
+    return Find_arbre_simple(x.parent)
 
 def Union_arbre_simple(x,y,classes):
     #si x et y sont déjà dans le même ensemble, on ne fait rien
-    
-    #sinon ...
+    xRacine= Find_arbre_simple(classes[x])
+    yRacine= Find_arbre_simple(classes[y])
+    if xRacine != yRacine:
+        xRacine.parent = yRacine
 
     return 
 
 def Test_Union_Find_arbre_simple(N, printing=False):
-    #d'abord nous construisons la structure arborescente simple
+    #aboard nous construisons la structure arborescente simple
     classes=[Arbre_simple(None,i) for i in range(N)]  
     if printing :
         for j in range(N):
@@ -97,12 +105,25 @@ class Arbre_by_rank :
             return self.parent.str_chaine_racines()+"->"+str(self.nom)
 
 def Find_arbre_by_rank(x):
-    return
+    if x.parent == None:
+        return x
+    return Find_arbre_by_rank(x.parent)
 
 def Union_arbre_by_rank(x,y,classes):
+    xRacine = Find_arbre_by_rank(classes[x])
+    yRacine = Find_arbre_by_rank(classes[y])
+
     #si x et y sont déjà dans le même ensemble, on ne fait rien
     
     #sinon, ...
+    if xRacine != yRacine:
+        if xRacine.rang < yRacine.rang:
+            xRacine.parent = yRacine
+        else:
+            yRacine.parent = xRacine
+            if xRacine.rang == yRacine.rang:
+                xRacine.rang = xRacine.rang + 1
+            
 
     return
 
@@ -139,7 +160,7 @@ if __name__=="__main__":
     print()
     
     print("Comparaison des temps d'execution des trois version de Union-Find : \n")
-    for N in [1000,10000,20000]:
+    for N in [1000,5000,10000]:
         print("N = "+str(N))
         start_time = time.time()
         Test_Union_Find_naif(N)
