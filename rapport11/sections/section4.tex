@@ -1,0 +1,12 @@
+À l'initialisation, on peut appliquer le théorème Minimax au réseau $R$. En conservant les notations de l'énoncé on a~:
+$$ \abs{F_\mr{max}} = \underbrace{0}_\abs{F} + \mr{min}\{c_R(A,B),\, (A,B) \, \text{Coupe de } R\} $$
+La propriété est donc initialement vérifiée.
+
+Lorsqu'on augmente le flot clourant, on diminue strictement d'une quantité $n$  la capacité de la coupe minimale du réseau $R$. En effet, pour passer de la source au puits, il faut nécessairement traverser au moins une arête de la coupe minimale de la source vers le puit. Puis on a augmenté le flot de $n$ sur cette arête. Par conséquent~:
+
+$$ \abs{F_\mr{max}} = \abs{F_\mr{precedent}} + n + \mr{min}\{c_R(A,B),\, (A,B) \, \text{Coupe de } R\} - n $$
+
+Par récurrence immédiate, on a la propriété à chaque étape de l'algorithme. En particulier, à la fin de l'algorithme, on a~:
+$$ \abs{F_\mr{max}} = \abs{F} + \mr{min}\{c_R(A,B),\, (A,B) \, \text{Coupe de } R\} $$
+Comme il n'existe plus de chemin dans le graphe résiduel, la capacité de toute coupe est nulle. Par conséquent, on a~:
+$$ \abs{F_\mr{max}} = \abs{F}$$
