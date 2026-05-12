@@ -1,0 +1,76 @@
+\documentclass[aspectratio=169]{beamer}
+
+% Thème simple et propre
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% Encodage
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+
+% Maths et images
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+% Enlever les icônes de navigation
+\setbeamertemplate{navigation symbols}{}
+
+% Infos du document
+\title{Coursidor \& Robozzle}
+\author{Jontef Raphaël}
+\institute{Enseirb-Matmeca}
+\date{Semestre 6, année 2025-2026}
+
+\begin{document}
+
+% -------------------------------------------------
+\begin{frame}{Pureté et impureté}
+
+\begin{columns}[T]
+
+% -------- COLONNE GAUCHE --------
+\begin{column}{0.40\textwidth}
+
+\textbf{Coursidor est impur, Robozzle est pur}
+\begin{itemize}
+    \item Coursidor : état global, effets de bord
+    \item Robozzle : fonctions pures, objets souverains (\texttt{PuzzleState}) nouvel état à chaque opération
+\end{itemize}
+
+\vspace{1cm}
+\textbf{Avantages de la pureté}
+\begin{itemize}
+    \item Séparation des comportements au sein des fonctions
+    \item Facilité de test et de débogage
+\end{itemize}
+\end{column}
+
+\begin{column}{0.40\textwidth}
+
+\textbf{Nuances}
+\begin{itemize}
+    \item Coursidor : copie de petites structures comme \texttt{move\_t} ou \texttt{dir\_t}
+    \item Robozzle : effets de bord sur le \texttt{DOM} en \texttt{HTML}, impureté intrinsèque à l'interface utilisateur
+\end{itemize}
+
+\vspace{0.4cm}
+
+\textbf{Désavantages de la pureté}
+\begin{itemize}
+    \item Paradigme de niveau élevé, plus difficile à maîtriser
+    \item Coût en mémoire très élevé
+\end{itemize}
+
+\end{column}
+
+
+
+
+\end{columns}
+
+\end{frame}
+
+% -------------------------------------------------
+\end{document}

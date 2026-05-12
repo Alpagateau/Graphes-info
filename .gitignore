@@ -88,3 +88,7 @@ pythontex-files-*/
 *.sagetex.sage
 *.sagetex.py
 *.sagetex.scmd
+
+
+
+!rapport/rapport.pdf
